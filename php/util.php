@@ -70,7 +70,7 @@ class FileSys {
     public function linkGen() {
         $links = [];
         foreach (new DirectoryIterator($this->fileDir) as $file) {
-            if ($file->getFilename() != '.' && $file->getFilename() != '..')
+            if ($file->getFilename() != '.' && $file->getFilename() != '..' && $file->getFilename() != '.keep')
                 if (substr($file->getFilename(), 0, strlen($this->secretWord)) == $this->secretWord) {
                     $filename = $file->getPathname();
                     $handle = fopen($filename, "r");
