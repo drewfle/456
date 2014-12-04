@@ -64,7 +64,7 @@ class REvthi {
 
 class FileSys {
 
-    public $fileDir = './storage/';
+    public $fileDir = './tmp/';
     public $secretWord = '#&!%';
 
     public function linkGen() {
