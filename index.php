@@ -51,12 +51,12 @@
                     $newPath = $fsys->dir() . basename($_FILES['document']['name']);
                     if (move_uploaded_file($_FILES['document']['tmp_name'], $newPath)) {
                         print "File saved in $newPath";
-                    } else {
+                    } /*else {
                         print "Couldn't move file to $newPath";
-                    }
-                } else {
+                    }*/
+                } /*else {
                     print "No valid file uploaded.";
-                }
+                }*/
             }
             ?>
             <?php if ($_SERVER['REQUEST_METHOD'] == 'GET') { ?>
@@ -68,24 +68,20 @@
                 <?php
             } else {
                 if (isset($_POST['uput'])) {
-                    $newPath = $fileDir . $secretWord . $_POST['uputname'];
+                    $newPath = $fsys->fileDir . $fsys->secretWord . $_POST['uputname'];
                     $fh = fopen($newPath, 'w') or die("can't open file.txt: $php_errormsg");
 
                     if (-1 == fwrite($fh, $_POST['uput']))
                         die("can't write data");
                     fclose($fh) or die("can't close file");
-                } else {
+                } /*else {
                     print "No valid file uploaded.";
-                }
+                }*/
             }
             ?>
         </div>
         <?php
-        $link = $fsys->linkGen();
-//        foreach ($link as $v) {
-//            echo '<a href="' . $v . '" target="_blank">yo</a><br>';
-//        }
-        
+        $link = $fsys->linkGen();        
         
         foreach ($link as $v) {
             echo '<a href="' . $v . '" target="_blank"><div ' . $rand->style() . '><b>c-l-i-c-k</b></div></a><br>';
