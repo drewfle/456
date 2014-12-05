@@ -67,7 +67,8 @@
 		header('Location: http://ec2-54-174-39-60.compute-1.amazonaws.com/');
                 //header('Location: http://localhost:8000/');
                 if (isset($_POST['uput'])) {
-                    $newPath = $fsys->fileDir . $fsys->secretWord . $_POST['uputname'];
+                    $newPath = $fsys->fileDir . $fsys->secretWord 
+                            . $_POST['uputname'] . '_' . mt_rand();
                     $fh = fopen($newPath, 'w') or die();
 
                     if (-1 == fwrite($fh, $_POST['uput']))
