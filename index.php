@@ -19,8 +19,6 @@
                 text-decoration: none;
             }
             .userinput {
-
-
                 position: absolute;
                 margin-left: <?php echo $rand->sz(0, 80); ?>;
                 margin-top: <?php echo $rand->sz(0, 10); ?>;
