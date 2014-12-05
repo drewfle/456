@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>AhAhahAHah</title>
+        <title>AhAhah456AHah</title>
         <?php include './php/util.php'; ?>
         <?php
         $rand = new REvthi(0, 1000);
@@ -46,17 +46,13 @@
                 </form>
                 <?php
             } else {
+                header('Location: http://localhost:8000/');
                 if (isset($_FILES['document']) &&
                         ($_FILES['document']['error'] == UPLOAD_ERR_OK)) {
-                    $newPath = $fsys->dir() . basename($_FILES['document']['name']);
-                    if (move_uploaded_file($_FILES['document']['tmp_name'], $newPath)) {
-                        print "File saved in $newPath";
-                    } /*else {
-                        print "Couldn't move file to $newPath";
-                    }*/
-                } /*else {
-                    print "No valid file uploaded.";
-                }*/
+                    $newPath = $fsys->fileDir . basename($_FILES['document']['name']);
+                    move_uploaded_file($_FILES['document']['tmp_name'], $newPath) or die();
+                }
+                
             }
             ?>
             <?php if ($_SERVER['REQUEST_METHOD'] == 'GET') { ?>
@@ -67,16 +63,15 @@
                 </form>
                 <?php
             } else {
+                header('Location: http://localhost:8000/');
                 if (isset($_POST['uput'])) {
                     $newPath = $fsys->fileDir . $fsys->secretWord . $_POST['uputname'];
-                    $fh = fopen($newPath, 'w') or die("can't open file.txt: $php_errormsg");
+                    $fh = fopen($newPath, 'w') or die();
 
                     if (-1 == fwrite($fh, $_POST['uput']))
-                        die("can't write data");
-                    fclose($fh) or die("can't close file");
-                } /*else {
-                    print "No valid file uploaded.";
-                }*/
+                        die();
+                    fclose($fh) or die();
+                }
             }
             ?>
         </div>
@@ -84,7 +79,7 @@
         $link = $fsys->linkGen();        
         
         foreach ($link as $v) {
-            echo '<a href="' . $v . '" target="_blank"><div ' . $rand->style() . '><b>c-l-i-c-k</b></div></a><br>';
+            echo '<a href="' . htmlentities($v) . '" target="_blank"><div ' . $rand->style() . '><b>c-l-i-c-k</b></div></a><br>';
         }
         ?>
 

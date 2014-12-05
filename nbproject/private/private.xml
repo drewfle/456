@@ -5,6 +5,7 @@
         <group>
             <file>file:/var/www/andrew_dynamic/nb.rethinkingcurator/php/util.php</file>
             <file>file:/var/www/andrew_dynamic/nb.rethinkingcurator/index.php</file>
+            <file>file:/var/www/andrew_dynamic/nb.rethinkingcurator/tmp/.keep</file>
         </group>
     </open-files>
 </project-private>
