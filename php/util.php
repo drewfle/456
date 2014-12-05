@@ -41,9 +41,9 @@ class REvthi {
             'static'
         ];
         $fl = [
-        'none',
-        'left',
-        'right'
+            'none',
+            'left',
+            'right'
         ];
         $style = 'style="'
                 . 'position:' . $pos[rand(0, 3)] . ';'

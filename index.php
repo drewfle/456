@@ -9,7 +9,6 @@
         $fsys = new FileSys();
         $clsArr = [];
         ?>
-        <?php echo ''; ?>
         <style>
             body {
                 width: 100%;
@@ -20,8 +19,8 @@
                 text-decoration: none;
             }
             .userinput {
-                
-                
+
+
                 position: absolute;
                 margin-left: <?php echo $rand->sz(0, 80); ?>;
                 margin-top: <?php echo $rand->sz(0, 10); ?>;
@@ -46,14 +45,13 @@
                 </form>
                 <?php
             } else {
-		header('Location: http://ec2-54-174-39-60.compute-1.amazonaws.com/');
+                header('Location: http://ec2-54-174-39-60.compute-1.amazonaws.com/');
                 //header('Location: http://localhost:8000/');
                 if (isset($_FILES['document']) &&
                         ($_FILES['document']['error'] == UPLOAD_ERR_OK)) {
                     $newPath = $fsys->fileDir . basename($_FILES['document']['name']);
                     move_uploaded_file($_FILES['document']['tmp_name'], $newPath) or die();
                 }
-                
             }
             ?>
             <?php if ($_SERVER['REQUEST_METHOD'] == 'GET') { ?>
@@ -64,10 +62,10 @@
                 </form>
                 <?php
             } else {
-		header('Location: http://ec2-54-174-39-60.compute-1.amazonaws.com/');
+                header('Location: http://ec2-54-174-39-60.compute-1.amazonaws.com/');
                 //header('Location: http://localhost:8000/');
                 if (isset($_POST['uput'])) {
-                    $newPath = $fsys->fileDir . $fsys->secretWord 
+                    $newPath = $fsys->fileDir . $fsys->secretWord
                             . $_POST['uputname'] . '_' . mt_rand();
                     $fh = fopen($newPath, 'w') or die();
 
@@ -79,8 +77,8 @@
             ?>
         </div>
         <?php
-        $link = $fsys->linkGen();        
-        
+        $link = $fsys->linkGen();
+
         foreach ($link as $v) {
             echo '<a href="' . htmlentities($v) . '" target="_blank"><div ' . $rand->style() . '><b>c-l-i-c-k</b></div></a><br>';
         }
