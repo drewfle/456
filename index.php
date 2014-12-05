@@ -46,7 +46,8 @@
                 </form>
                 <?php
             } else {
-                header('Location: http://localhost:8000/');
+		header('Location: http://ec2-54-174-39-60.compute-1.amazonaws.com/');
+                //header('Location: http://localhost:8000/');
                 if (isset($_FILES['document']) &&
                         ($_FILES['document']['error'] == UPLOAD_ERR_OK)) {
                     $newPath = $fsys->fileDir . basename($_FILES['document']['name']);
@@ -63,7 +64,8 @@
                 </form>
                 <?php
             } else {
-                header('Location: http://localhost:8000/');
+		header('Location: http://ec2-54-174-39-60.compute-1.amazonaws.com/');
+                //header('Location: http://localhost:8000/');
                 if (isset($_POST['uput'])) {
                     $newPath = $fsys->fileDir . $fsys->secretWord . $_POST['uputname'];
                     $fh = fopen($newPath, 'w') or die();
